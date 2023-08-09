@@ -1,3 +1,3 @@
 # E Commerce React
 
-[Preview Link](https://e-commerce-react-elman.vercel.appg/)
+[Preview Link](https://e-commerce-react-elman.vercel.app/)
