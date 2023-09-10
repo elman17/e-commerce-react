@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Cardthird from '../Cards/Cardthird';
+import Cardthird from '../Cards/Cardthird'
 import axios from 'axios';
 import { getProducts } from '../api/product';
 
@@ -28,7 +28,7 @@ const Products = () => {
     return (
         <div className='bsp w-full m-auto flex flex-col gap-y-10 justify-around pl-44 pr-44'>
             <div className='flex flex-wrap justify-between gap-y-12'>
-                {products?.slice(0, 12)?.map((product) => (
+                {products?.slice(0, 20)?.map((product) => (
                     <Cardthird key={product.id} product={product} />
                 ))}
             </div>

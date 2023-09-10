@@ -1,36 +1,39 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Green from '../../assets/Green.svg';
 import Greensec from '../../assets/Greensec.svg';
 import Orange from '../../assets/Orange.svg';
 import Blue from '../../assets/Blue.svg';
-import axios from 'axios';
-
-const getData = async (setProducts) => {
-    const url = `${import.meta.env.VITE_APP_STRAPI_BASE_URL}/api/products`;
-
-    try {
-        const { data } = await axios.get(url);
-        setProducts(data.data);
-    } catch (error) {
-        console.error('Veri alınamadı:', error);
-    }
-};
 
 const Cardthird = ({ product }) => {
+    const navigate = useNavigate();
+
     return (
-        <div style={{ width: '23%' }} className='flex flex-col justify-between items-center text-center gap-2 m-1 pb-5 mb-9'>
-            <img src={import.meta.env.VITE_APP_STRAPI_BASE_URL + product?.attributes?.thumbnail?.data?.attributes?.url} alt="" className='imgp bg-gray-100' />
-            <p className="namep font-semibold text-md">
-                {product?.attributes?.name}
-            </p>
-            <p className="categoryp text-sm font-normal text-gray-500">
-                {product?.category}
-            </p>
-            <p className="pricep text-sm text-green-500 flex gap-2">
-                <span className='text-gray-300'>$16.48</span>
-                ${product?.attributes?.Price}
-            </p>
-            <div className='flex flex-row gap-2'>
+        <div
+            onClick={() => navigate(`/product-details/${product?.id}`)}
+            className='card bg-white border rounded-lg shadow-lg hover:shadow-xl cursor-pointer p-4 flex flex-col justify-between gap-3 transition-transform duration-300 transform hover:scale-105'
+            style={{ width: '23%' }}
+        >
+            <div className="img-container">
+                <img
+                    src={import.meta.env.VITE_APP_STRAPI_BASE_URL + product?.attributes?.thumbnail?.data?.attributes?.url}
+                    alt={product?.attributes?.name}
+                    className='imgp rounded-lg transition-transform duration-300 transform hover:scale-110'
+                />
+            </div>
+            <div className="info-container text-center">
+                <p className="namep font-semibold text-md">
+                    {product?.attributes?.name}
+                </p>
+                <p className="categoryp text-sm font-normal text-gray-500">
+                    {product?.attributes?.category}
+                </p>
+                <p className="pricep text-sm text-green-500">
+                    <span className='text-gray-300 line-through mr-2'>$16.48</span>
+                    ${product?.attributes?.Price}
+                </p>
+            </div>
+            <div className='flex flex-row gap-2 justify-center'>
                 <img src={Green} alt="" />
                 <img src={Greensec} alt="" />
                 <img src={Orange} alt="" />
@@ -41,3 +44,4 @@ const Cardthird = ({ product }) => {
 };
 
 export default Cardthird;
+

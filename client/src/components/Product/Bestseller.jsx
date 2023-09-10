@@ -36,4 +36,4 @@ const Bestseller = () => {
     )
 }
 
-export default Bestseller
+export default Bestseller;

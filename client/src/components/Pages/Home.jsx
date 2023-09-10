@@ -1,9 +1,9 @@
 import React from 'react'
 import Hero from '../Hero/hero'
-import Bestseller from '../Products/Bestseller'
+import Bestseller from '../Product/Bestseller'
 import Aboutcard from '../Cards/aboutcard'
 import Footer from '../Footer/footer'
-import Bestsellersec from '../Products/Bestsellersec'
+import Bestsellersec from '../Product/Bestsellersec'
 import Aboutsec from '../Cards/Aboutsec'
 
 

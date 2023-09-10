@@ -9,7 +9,7 @@ const Navigationabout = () => {
                     <Link to="/">Home</Link>
                 </li>
                 <li>
-                    <Link to="/Product">Product</Link>
+                    <Link to="/Productlist">Product</Link>
                 </li>
                 <li>
                     <Link to="/Pricing">Pricing</Link>

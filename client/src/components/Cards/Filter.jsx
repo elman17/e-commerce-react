@@ -3,7 +3,7 @@ import { TreeSelect } from 'antd';
 import Square from '../../assets/Square.svg';
 import Tri from '../../assets/Tri.svg';
 
-const Filter = () => {
+const Filter = ({ onSortOrderChange }) => {
     const [value, setValue] = useState();
 
     const onChange = (newValue) => {
@@ -11,7 +11,19 @@ const Filter = () => {
     };
 
     const treeData = [
+        {
+            title: 'Price low to high',
+            value: 'lowToHigh',
+        },
+        {
+            title: 'Price high to low',
+            value: 'highToLow',
+        },
     ];
+
+    const onSortChange = (value) => {
+        onSortOrderChange(value);
+    };
 
     return (
         <div className='flex flex-row justify-around items-center pl-16 pr-20 w-full'>
@@ -36,6 +48,7 @@ const Filter = () => {
                     treeDefaultExpandAll
                     onChange={onChange}
                     treeData={treeData}
+                    onSelect={onSortChange}
                 />
                 <button className='bg-teal-600 text-white text-sm pt-2 pb-2 w-36 rounded-lg'>
                     Filter
@@ -46,4 +59,5 @@ const Filter = () => {
 }
 
 export default Filter;
+
 
