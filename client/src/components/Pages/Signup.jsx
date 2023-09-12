@@ -6,15 +6,16 @@ import axios from 'axios';
 import Face from '../../assets/Face.svg';
 
 const initialUser = {
-    username: '',
-    email: '',
-    password: '',
+    username: "",
+    email: "",
+    password: "",
 };
 
 const Signup = () => {
     const [user, setUser] = useState(initialUser);
-    const [error, setError] = useState(null);
     const navigate = useNavigate();
+    const [error, setError] = useState(null);
+
 
     const handleUserChange = ({ target }) => {
         const { name, value } = target;
@@ -25,8 +26,9 @@ const Signup = () => {
     };
 
     const handleSignup = async () => {
-        const url = `${import.meta.env.VITE_APP_STRAPI_BASE_URL}/auth/local/register`;
+
         try {
+            const url = `${import.meta.env.VITE_APP_STRAPI_BASE_URL}api/auth/local/register`;
             if (user.username && user.email && user.password) {
                 const { data } = await axios.post(url, {
                     username: user.username,

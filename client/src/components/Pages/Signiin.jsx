@@ -20,8 +20,9 @@ const Signiin = () => {
         }));
     };
 
-    const handleSigniin = async (e) => {
-        const url = `${import.meta.env.VITE_APP_STRAPI_BASE_URL}/auth/local/signiin`;
+    const handleSigniin = async () => {
+        console.log('Base URL:', import.meta.env.VITE_APP_STRAPI_BASE_URL);
+        const url = `${import.meta.env.VITE_APP_STRAPI_BASE_URL}/api/auth/local`;
         try {
             if (user.email && user.password) {
                 const { data } = await axios.post(url, {
