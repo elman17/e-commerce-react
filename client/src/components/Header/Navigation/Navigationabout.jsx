@@ -12,7 +12,7 @@ const Navigationabout = () => {
                     <Link to="/Productlist">Product</Link>
                 </li>
                 <li>
-                    <Link to="/Pricing">Pricing</Link>
+                    <Link to="/Team">Team</Link>
                 </li>
                 <li>
                     <Link to="/Contact">Contact</Link>

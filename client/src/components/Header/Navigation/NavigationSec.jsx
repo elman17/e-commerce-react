@@ -68,7 +68,9 @@ const NavigationSec = () => {
                     </div>
                     <div className='flex flex-row justify-between gap-3.5'>
                         <img src={Search} alt="" />
-                        <img src={Basket} alt="" />
+                        <Link to="/basket">
+                            <img src={Basket} alt="Basket" />
+                        </Link>
                         <img src={Wish} alt="" />
                     </div>
                 </div>

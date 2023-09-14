@@ -1,10 +1,10 @@
-// NewReview.js
 import React, { useState } from 'react';
 import { Rate } from 'antd';
 import { useParams } from 'react-router-dom';
 import { userData } from '../Helper';
 import { useDispatch } from 'react-redux';
 import { addReview } from '../redux/actions/reducer/reviewsReducer';
+import { instance } from '../components/api';
 
 const NewReview = () => {
     const { id } = useParams();
@@ -19,9 +19,20 @@ const NewReview = () => {
         const data = {
             stars,
             productID: id,
-            username: user.username,
             text,
         };
+
+        const createReview = async () => {
+            try {
+                await instance.post(`${import.meta.env.VITE_APP_STRAPI_BASE_URL}/api/reviews`, {
+                    data: data
+                })
+            } catch (error) {
+                console.log(error.message);
+            }
+        }
+
+        createReview()
 
         dispatch(addReview(data));
         setText("");
@@ -31,7 +42,7 @@ const NewReview = () => {
     return (
         <div className="w-3/4 mx-auto flex flex-col gap-7">
             <h3 className="text-lg font-semibold">Add a New Review</h3>
-            <form onSubmit={handleFormSubmit} className="flex flex-col gap-4">
+            <form onSubmit={(e) => { handleFormSubmit(e) }} className="flex flex-col gap-4">
                 <div className="flex flex-col">
                     <label className="text-sm font-medium text-gray-600 mb-2">Stars:</label>
                     <Rate value={stars} onChange={setStars} />

@@ -86,7 +86,7 @@ const CardInside = () => {
                                 </div>
                                 <div className='flex flex-row justify-center items-center gap-5'>
                                     <button className='text-white bg-teal-600 rounded-md items-center p-2'>
-                                        Select Options
+                                        Add to Baskett
                                     </button>
                                     <div className='flex flex-row gap-4 items-center'>
                                         <img src={Heart} alt='' />

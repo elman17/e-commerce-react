@@ -4,10 +4,12 @@ import { Link, useNavigate } from 'react-router-dom';
 const Cardp = ({ product }) => {
     const navigate = useNavigate();
 
+    console.log(product);
+
     return (
         <div
             onClick={() => navigate(`/product-details/${product?.id}`)}
-            className='card bg-white border items-center rounded-lg shadow-lg hover:shadow-xl cursor-pointer p-4 flex flex-col justify-between gap-3 transition-transform duration-300 transform hover:scale-105'
+            className='card bg-white border rounded-lg shadow-lg hover:shadow-xl cursor-pointer p-4 flex flex-col justify-between gap-3 transition-transform duration-300 transform hover:scale-105'
             style={{ width: '23%' }}
         >
             <div className="img-container">
@@ -22,7 +24,7 @@ const Cardp = ({ product }) => {
                     {product?.attributes?.name}
                 </p>
                 <p className="categoryp text-sm font-normal text-gray-500 text-center">
-                    {product?.category}
+                    {product?.attributes?.categories?.data[0]?.attributes?.name}
                 </p>
                 <p className="pricep text-sm text-green-500 text-center">
                     ${product?.attributes?.Price}
