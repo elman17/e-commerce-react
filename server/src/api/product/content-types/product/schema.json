@@ -38,28 +38,11 @@
         "videos"
       ]
     },
-    "categories": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::category.category",
-      "inversedBy": "products"
-    },
     "sub_categories": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::sub-category.sub-category",
       "inversedBy": "products"
-    },
-    "coverIMG": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
     },
     "type": {
       "type": "enumeration",
@@ -67,6 +50,10 @@
         "trending",
         "popular"
       ]
+    },
+    "isInBasket": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
